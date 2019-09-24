@@ -14,7 +14,7 @@ for (i = 0; i < 40; i++)
 num3 = num2 + num1;
 num1 = num2;
 num2 = num3;
-if (num3 <= 4000000)
+if ((num3 <= 4000000) && (num3 % 2 == 0))
 sum = sum + num3;
 }
 printf("%ld\n", sum);
