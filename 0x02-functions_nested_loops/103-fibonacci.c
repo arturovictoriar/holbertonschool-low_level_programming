@@ -8,7 +8,7 @@
 int main(void)
 {
 int i;
-long int num1 = 0, num2 = 1, num3 = 0, sum=0;
+long int num1 = 0, num2 = 1, num3 = 0, sum = 0;
 for (i = 0; i < 40; i++)
 {
 num3 = num2 + num1;
