@@ -13,9 +13,9 @@ if (n >= 98)
 for (n = n; n >= 98; n--)
 {
 if (n > 99)
-printf("%d",(n / 10) / 10);
-printf("%d",(n / 10) % 10);
-printf("%d",(n % 10));
+printf("%d", (n / 10) / 10);
+printf("%d", (n / 10) % 10);
+printf("%d", (n % 10));
 if (n != 98)
 {
 printf(",");
@@ -31,14 +31,14 @@ if (n < 0)
 {
 printf("-");
 if (n < -9)
-printf("%d",(abs(n) / 10));
-printf("%d",(abs(n) % 10));
+printf("%d", (abs(n) / 10));
+printf("%d", (abs(n) % 10));
 }
 else
 {
 if (n > 9)
-printf("%d",(n / 10));
-printf("%d",(n % 10));
+printf("%d", (n / 10));
+printf("%d", (n % 10));
 }
 if (n != 98)
 {
