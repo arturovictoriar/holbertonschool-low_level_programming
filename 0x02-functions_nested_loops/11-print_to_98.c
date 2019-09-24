@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
+#include <stdio.h>
 /**
  * print_to_98 - check the code for Holberton School students.
  * @n: is a int variable
@@ -12,13 +13,13 @@ if (n >= 98)
 for (n = n; n >= 98; n--)
 {
 if (n > 99)
-_putchar(((n / 10) / 10) + '0');
-_putchar(((n / 10) % 10) + '0');
-_putchar((n % 10) + '0');
+printf("%d",(n / 10) / 10);
+printf("%d",(n / 10) % 10);
+printf("%d",(n % 10));
 if (n != 98)
 {
-_putchar(',');
-_putchar(' ');
+printf(",");
+printf(" ");
 }
 }
 }
@@ -28,23 +29,23 @@ for (n = n; n <= 98; n++)
 {
 if (n < 0)
 {
-_putchar('-');
+printf("-");
 if (n < -9)
-_putchar((abs(n) / 10) + '0');
-_putchar((abs(n) % 10) + '0');
+printf("%d",(abs(n) / 10));
+printf("%d",(abs(n) % 10));
 }
 else
 {
 if (n > 9)
-_putchar((n / 10) + '0');
-_putchar((n % 10) + '0');
+printf("%d",(n / 10));
+printf("%d",(n % 10));
 }
 if (n != 98)
 {
-_putchar(',');
-_putchar(' ');
+printf(",");
+printf(" ");
 }
 }
 }
-_putchar('\n');
+printf("\n");
 }
