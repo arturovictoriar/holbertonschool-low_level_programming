@@ -7,14 +7,10 @@
  */
 int print_last_digit(int c)
 {
-int lastdig;
+int lastdig = c % 10;
 
-if (c < 0)
-lastdig = c * -1;
-else
-lastdig = c;
-
-lastdig = lastdig % 10;
+if (lastdig < 0)
+lastdig = lastdig * (-1);
 
 _putchar(lastdig + '0');
 return (lastdig);
