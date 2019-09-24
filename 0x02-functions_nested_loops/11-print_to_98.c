@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdlib.h>
 /**
  * main - check the code for Holberton School students.
  *
@@ -26,9 +26,19 @@ else
 {
 for (n=n; n <= 98; n++)
 {
+if (n<0)
+{
+_putchar('-');
+if (n<-9)
+_putchar((abs(n)/10)+ '0');
+_putchar((abs(n)%10)+ '0');
+}
+else
+{
 if (n> 9)
 _putchar((n/10)+ '0');
 _putchar((n%10)+ '0');
+}
 if(n!=98)
 {
 _putchar(',');
