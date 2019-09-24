@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include "stdlib.h"
+
 /**
  * print_last_digit - check the code for Holberton School students.
  * @c: is a int variable
@@ -8,7 +8,11 @@
 int print_last_digit(int c)
 {
 int lastdig;
-lastdig = abs(c);
+
+if (c < 0)
+lastdig = c * -1;
+else
+lastdig = c;
 
 lastdig = lastdig % 10;
 
