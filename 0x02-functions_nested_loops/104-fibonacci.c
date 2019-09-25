@@ -20,7 +20,38 @@ uno = dos;
 dos = fibo;
 }
 
-dosa = 
+dosa = dos / 10000000000;
+unoa = uno / 10000000000;
+
+dosb = dos % 10000000000;
+unob = uno % 10000000000;
+
+
+for (i = 92; i < 98; i++)
+{
+
+fiboa = dosa + unoa;
+fibob = dosb + unob;
+
+if (fibob > 10000000000)
+{
+fiboa += 1;
+fibob %= 10000000000;
+}
+
+printf("%ld%ld", fiboa, fibob);
+
+unoa = dosa;
+unob = dosb;
+dosa = fiboa;
+dosb = fibob;
+
+if (i != 97)
+printf(", ");
+}
+
+
+
 printf("\n");
 return (0);
 }
