@@ -14,7 +14,7 @@ unsigned long dos = 1, uno = 0, dosa = 0,  dosb = 0, unoa = 0, unob = 0;
 for (i = 0; i < 91; i++)
 {
 fibo = dos + uno;
-printf("%lu", fibo);
+printf("%lu, ", fibo);
 uno = dos;
 dos = fibo;
 }
