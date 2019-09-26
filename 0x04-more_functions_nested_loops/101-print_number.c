@@ -4,7 +4,6 @@
  * @n: is a int number
  * Return: Always 0.
  */
-
 void print_number(int n)
 {
 int cont = 0, c = 1, i, num;
@@ -16,8 +15,6 @@ _putchar('-');
 }
 
 num = n;
-if (n == 0)
-_putchar('0');
 
 while ((num / 10) > 0)
 {
@@ -25,7 +22,7 @@ num = num / 10;
 cont++;
 }
 
-while (n != 0)
+while ((n / 10) != 0)
 {
 c = 1;
 for (i = 0; i < cont; i++)
@@ -34,4 +31,5 @@ _putchar((n / c) +'0');
 n = n % c;
 cont--;
 }
+_putchar(n +'0');
 }
