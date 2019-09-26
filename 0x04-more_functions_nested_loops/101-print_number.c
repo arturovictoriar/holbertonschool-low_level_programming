@@ -14,7 +14,7 @@ _putchar(n + '0');
 if (n < 0)
 {
 _putchar('-');
-num = (n+1)* -1;
+num = (n + 1) * -1;
 }
 else
 num = n;
@@ -32,7 +32,7 @@ for (i = 0; i < cont; i++)
 c *= 10;
 
 if (n < 0)
-_putchar(((n / c)*(-1)) +'0');
+_putchar(((n / c) *(-1) + '0');
 
 else
 _putchar((n / c) +'0');
