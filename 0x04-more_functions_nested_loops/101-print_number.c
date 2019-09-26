@@ -14,7 +14,10 @@ _putchar(n + '0');
 if (n < 0)
 {
 _putchar('-');
-num = (n + 1) * -1;
+if (n == -2147483648)
+num = (n + 1)*-1;
+else
+num = n*-1;
 }
 else
 num = n;
