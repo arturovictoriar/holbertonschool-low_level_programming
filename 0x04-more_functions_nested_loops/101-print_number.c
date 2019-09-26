@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include <stdio.h>
+
 /**
  * print_number - check the code for Holberton School students.
  * @n: is a int number
@@ -21,6 +21,7 @@ _putchar(((n / 10) % 10) + '0');
 _putchar(n % 10 + '0');
 
 }
+
 else
 {
 if (n > 999)
