@@ -31,5 +31,5 @@ _putchar((n / c) +'0');
 n = n % c;
 cont--;
 }
-_putchar(n +'0');
+_putchar(n + '0');
 }
