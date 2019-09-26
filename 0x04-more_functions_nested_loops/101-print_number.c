@@ -7,15 +7,11 @@
 void print_number(int n)
 {
 int cont = 0, c, i, num;
-
 if (n == 0)
 _putchar(n + '0');
-
 if (n < 0)
 _putchar('-');
-
 num = n;
-
 if (n < 0)
 {
 while ((num / 10) < 0)
@@ -24,7 +20,6 @@ num = num / 10;
 cont++;
 }
 }
-
 else
 {
 while ((num / 10) > 0)
@@ -33,21 +28,16 @@ num = num / 10;
 cont++;
 }
 }
-
 while ((n / 10) != 0 || c != 1)
 {
 c = 1;
 for (i = 0; i < cont; i++)
 c *= 10;
-
 if (n < 0)
 _putchar(((n / c) *(-1)) + '0');
-
 else
 _putchar((n / c) +'0');
-
 n = n % c;
 cont--;
 }
-
 }
