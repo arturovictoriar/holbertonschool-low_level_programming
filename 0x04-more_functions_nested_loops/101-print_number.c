@@ -12,20 +12,26 @@ if (n == 0)
 _putchar(n + '0');
 
 if (n < 0)
-{
 _putchar('-');
-if (n == -2147483648)
-num = (n + 1)*-1;
-else
-num = n*-1;
-}
-else
+
 num = n;
 
+if (n < 0)
+{
+while ((num / 10) < 0)
+{
+num = num / 10;
+cont++;
+}
+}
+
+else
+{
 while ((num / 10) > 0)
 {
 num = num / 10;
 cont++;
+}
 }
 
 while ((n / 10) != 0 || c != 1)
