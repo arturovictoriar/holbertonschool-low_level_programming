@@ -24,7 +24,7 @@ _putchar(abs((n / cont)) + '0');
 
 n = n % cont;
 
-if (cont > 1)	
+if (cont > 1)
 cont = cont / 10;
 
 while ((abs(n) < cont) &&(cont > 1))
