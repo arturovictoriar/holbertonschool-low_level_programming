@@ -6,33 +6,34 @@
  */
 void print_number(int n)
 {
-int cont = 0, c, i, num;
 
-if (n == 0)
-_putchar(n + '0');
+
+int cont = 1, tmp = n;
 
 if (n < 0)
-{
-n *= -1;
 _putchar('-');
-}
 
-num = n;
-
-while ((num / 10) > 0)
+while (tmp / 10 != 0)
 {
-num = num / 10;
-cont++;
+cont = cont * 10;
+tmp = tmp / 10;
 }
 
-while ((n / 10) != 0 || c != 1)
+while ((n / cont != 0) && (cont != 1))
 {
-c = 1;
-for (i = 0; i < cont; i++)
-c *= 10;
-_putchar((n / c) +'0');
-n = n % c;
-cont--;
+_putchar(abs((n / cont)) + '0');
+
+n = n % cont;
+
+if (cont > 1)
+cont = cont / 10;
+
+while ((abs(n) < cont) && (cont > 1))
+{
+_putchar('0');
+cont = cont / 10;
+}
 }
 
+_putchar(abs(n) + '0');
 }
