@@ -8,18 +8,18 @@ void print_number(int n)
 {
 
 
-int cont = 1, tmp = n;
+int cont = 1, num = n;
 
 if (n < 0)
 _putchar('-');
 
-while (tmp / 10 != 0)
+while (num / 10 != 0)
 {
 cont = cont * 10;
-tmp = tmp / 10;
+num = num / 10;
 }
 
-while ((n / cont != 0) && (cont != 1))
+while ((n / num != 0) && (cont != 1))
 {
 _putchar(abs((n / cont)) + '0');
 
@@ -28,7 +28,7 @@ n = n % cont;
 if (cont > 1)
 cont = cont / 10;
 
-while ((abs(n) < cont) && (cont > 1))
+while ((abs(n) < cont) &&(cont > 1))
 {
 _putchar('0');
 cont = cont / 10;
