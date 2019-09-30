@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 /**
  * print_number - check the code for Holberton School students.
  * @n: is a int number
