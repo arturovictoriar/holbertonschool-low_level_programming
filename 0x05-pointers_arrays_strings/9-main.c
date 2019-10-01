@@ -12,7 +12,7 @@ int main(void)
     char *p;
 
     p = _strcpy(s1, "First, solve the problem. Then, write the code\n");
-    printf("%s\n\n\n", s1);
+    printf("%s", s1);
     printf("%s", p);
     return (0);
 }
