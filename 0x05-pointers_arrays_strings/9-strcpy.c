@@ -8,18 +8,11 @@
  */
 char *_strcpy(char *dest, char *src)
 {
-int i, n;
-
-for (n = 0; src != '\0' ; n++)
-;
-
-src -= n;
-
-for (i = 0; i < n && src[i] != '\0'; i++)
-dest[i] = src[i];
-
-for ( ; i < n; i++)
-dest[i] = '\0';
-
+int i;
+for (i = 0; *src != '\0'; i++)
+{
+dest[i] = *src;
+src++;
+}
 return (dest);
 }
