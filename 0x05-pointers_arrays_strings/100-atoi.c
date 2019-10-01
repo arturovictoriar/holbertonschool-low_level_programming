@@ -8,10 +8,8 @@
 
 int _atoi(char *s)
 {
-int i = 0, dig = 0, digi = 1, negative = 0, numero = 0, nume;
+int i = 0, dig = 0, digi = 1, check = 0, negative = 0, numero = 0, nume, out = 0;
 char num;
-printf("%p\n", s);
-
 for (i = 0; *s != '\0'; i++)
 {
 if (*s == '-')
@@ -20,18 +18,27 @@ negative++;
 for (num = '0'; num <= '9'; num++)
 {
 if (*s == num)
+{
+check = 1;
 dig++;
 }
-s++;
+else
+out++;
 }
+
+if (out == 10 && check == 1)
+break;
+s++;
+out = 0;
+}
+
 dig--;
-printf("%p\n", s);
+
 s -= i;
-printf("%p\n", s);
-printf("%s\n", s);
+
 for (i = 0; i < dig; i++)
 digi *= 10;
-printf("%d\n", digi);
+
 
 while (*s != '\0')
 {
@@ -42,14 +49,14 @@ if (*s == (nume + '0'))
 {
 numero += (nume * digi);
 digi /= 10;
-printf("Putito\n");
+
 }
 }
 
 s++;
 }
 
-printf("%p\n", s);
+
 
 if ((negative % 2) != 0)
 numero *= -1;
