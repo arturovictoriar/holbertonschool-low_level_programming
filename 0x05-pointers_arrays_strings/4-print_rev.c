@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * _puts - check the code for Holberton School students.
+ * print_rev - check the code for Holberton School students.
  * @s: pointer int type
  * Return: Always 0.
  */
