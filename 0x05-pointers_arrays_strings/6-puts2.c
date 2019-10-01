@@ -1,14 +1,16 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * _puts - check the code for Holberton School students.
+ * puts2 - check the code for Holberton School students.
  * @str: pointer int type
  * Return: Always 0.
  */
-void _puts(char *str)
+void puts2(char *str)
 {
-while (*str != '\0')
+int i;
+for (i = 0; *str != '\0'; i++)
 {
+if (i % 2 == 0)
 _putchar(*str);
 str++;
 }
