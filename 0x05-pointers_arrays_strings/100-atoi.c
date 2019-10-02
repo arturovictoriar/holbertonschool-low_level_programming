@@ -29,9 +29,8 @@ break;
 s++;
 out = 0;
 }
-dig--;
 s -= i;
-for (i = 0; i < dig; i++)
+for (i = 0; i < dig - 1; i++)
 digi *= 10;
 while (*s != '\0')
 {
