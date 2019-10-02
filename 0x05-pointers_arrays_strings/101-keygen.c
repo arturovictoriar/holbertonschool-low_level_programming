@@ -9,11 +9,9 @@
  */
 int main(void)
 {
-int add, i, r;
-
-char seed[62] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char password[40];
-int n, passw;
+char seed[53] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+char password[22];
+int i, n, passw, complem;
 
 srand(time(0));
 
