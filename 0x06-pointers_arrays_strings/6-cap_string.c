@@ -4,13 +4,12 @@
 /**
  * cap_string - check the code for Holberton School students.
  * @a: is a pointer type char
- * 
  * Return: Always 0.
  *
  */
 char *cap_string(char *a)
 {
-char separator[] = " \t\n,;.!?\"()}"; 
+char separator[] = " \t\n,;.!?\"()}";
 char l[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int i, k, m;
 char j;
