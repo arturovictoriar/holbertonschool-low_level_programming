@@ -2,10 +2,9 @@
 #include <stdio.h>
 
 /**
- * _strncpy - check the code for Holberton School students.
- * @dest: is a pointer type char
- * @src: is a pointer type char
- * @n: is a int variable
+ * _strcmp - check the code for Holberton School students.
+ * @s1: is a pointer type char
+ * @s2: is a pointer type char
  * Return: Always 0.
  */
 int _strcmp(char *s1, char *s2)
