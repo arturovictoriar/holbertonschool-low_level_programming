@@ -10,31 +10,29 @@
 char *cap_string(char *a)
 {
 char separator[] = " \t\n,;.!?\"(){}";
-char l[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-int i, k, m;
-char j;
+int i, j;
 
-for (i = 0; a[i] != '\0'; i++)
+for (i = 0; a[i] != '\0'; a++)
 {
 
-for (m = 0; separator[m] != '\0'; m++)
+if (a[i] >= 'a' && a[i] <= 'z')
 {
 
-if (a[i - 1] == separator[m])
-{
-k = 0;
+if (i == 0)
+a[i] -= 32;
 
-for (j = 'a'; j <= 'z'; j++, k++)
+
+else
 {
-if (a[i] == j)
-a[i] = l[k];
+for (j = 0; separator[0] != '\0'; j++)
+{
+if (a[i - 1] == separator[j])
+a[i] -= 32;
+}
 }
 
 }
-
 }
-
-
-}
+ 
 return (a);
 }
