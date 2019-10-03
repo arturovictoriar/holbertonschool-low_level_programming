@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strncat - check the code for Holberton School students.
+ * _strncpy - check the code for Holberton School students.
  * @dest: is a pointer type char
  * @src: is a pointer type char
  * @n: is a int variable
