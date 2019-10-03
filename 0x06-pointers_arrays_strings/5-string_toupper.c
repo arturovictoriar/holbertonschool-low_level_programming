@@ -2,9 +2,8 @@
 #include <stdio.h>
 
 /**
- * _strcmp - check the code for Holberton School students.
+ * string_toupper - check the code for Holberton School students.
  * @s1: is a pointer type char
- * 
  * Return: Always 0.
  *
  */
@@ -15,7 +14,7 @@ char l[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 char j;
 for (i = 0; s1[i] != '\0'; i++)
 {
-k=0;
+k = 0;
 for (j = 'a'; j <= 'z'; j++, k++)
 {
 if (s1[i] == j)
