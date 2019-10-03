@@ -17,6 +17,9 @@ char j;
 for (i = 0; a[i] != '\0'; i++)
 {
 
+if (a[i] == '\t')
+a[i] = ' ';
+
 for (m = 0; separator[m] != '\0'; m++)
 {
 
