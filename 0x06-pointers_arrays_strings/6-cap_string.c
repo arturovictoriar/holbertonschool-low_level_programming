@@ -9,7 +9,7 @@
  */
 char *cap_string(char *a)
 {
-char separator[] = " \t\n,;.!?\"()}";
+char separator[] = " \t\n,;.!?\"({}";
 char l[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int i, k, m;
 char j;
