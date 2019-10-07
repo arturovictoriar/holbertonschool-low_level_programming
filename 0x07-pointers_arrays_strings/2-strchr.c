@@ -14,8 +14,8 @@ int i;
 for (i = 0; s[i] != c && s[i] != '\0'; i++)
 ;
 
-if (s[i] == '\0')
-return(0);
+if (s[i] != c)
+return (0);
 
 else
 s = s + i;
