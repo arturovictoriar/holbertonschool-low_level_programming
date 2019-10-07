@@ -29,9 +29,9 @@ break;
 }
 
 if (num != 0)
-break;
+return (s + i);
 
 }
 
-return (s + i);
+return (0);
 }
