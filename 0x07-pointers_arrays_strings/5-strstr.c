@@ -16,14 +16,12 @@ for (cont = 0; needle[cont] != '\0'; cont++)
 
 for (; *haystack != '\0'; haystack++)
 {
-i = 0;
 num = 0;
-if (*haystack == needle[i])
+if (*haystack == needle[0])
 {
-i++;
 num++;
 haystack++;
-for (; i < cont; i++)
+for (i = 1; i < cont; i++, haystack++;)
 {
 if (*haystack == needle[i])
 {
@@ -35,8 +33,8 @@ haystack--;
 num = 0;
 break;
 }
-haystack++;
 }
+
 }
 
 if (num == cont)
