@@ -9,39 +9,44 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-int i, j, k, num = 0, cont = 0;
+int i, num, cont;
 
-for (k = 0; needle[k] != '\0'; k++)
+for (cont = 0; needle[cont] != '\0'; cont++)
 ;
 
-for (i = 0; haystack[i] != '\0'; i++)
+for (; *haystack != '\0'; haystack++)
 {
-
-for (j = 0; needle[j] != '\0'; j++)
+i = 0;
+num = 0;
+if (*haystack == needle[i])
 {
-if (haystack[i] != needle[j])
-continue;
-
-else
+i++;
+num++;
+haystack++;
+for (; i < cont; i++)
+{
+if (*haystack == needle[i])
 {
 num++;
-break;
 }
-}
-
-for (j = 0; needle[j] != '\0'; j++)
-if (num == k && haystack[i + 1] != needle[j])
-cont++;
-
-if (cont == j)
-break;
-
-cont = 0;
-}
-
-
-if (num == 0)
-return (0);
 else
-return (haystack + i - k);
+{
+haystack--;
+num = 0;
+break;
+}
+haystack++;
+}
+}
+
+if (num == cont)
+break;
+
+}
+
+
+if (num == cont)
+return (haystack - cont);
+else
+return (0);
 }
