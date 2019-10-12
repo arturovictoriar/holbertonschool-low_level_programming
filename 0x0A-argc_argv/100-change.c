@@ -1,4 +1,3 @@
-#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,36 +11,7 @@
 
 int main(int argc, char **argv)
 {
-	int num = 0, cont = 0;
-
-	if (argc == 2)
-	{
-		num = atoi(argv[1]);
-		if (num < 0)
-			printf("0\n");
-		else
-		{
-		while (num != 0)
-		{
-			if (num - 25 >= 0)
-				num -= 25;
-			else if (num - 10 >= 0)
-				num -= 10;
-			else if (num - 5 >= 0)
-				num -= 25;
-			else if (num - 2 >= 0)
-				num -= 2;
-			else if (num - 1 >= 0)
-				num -= 1;
-			cont++;
-		}
-		printf("%d\n", cont);
-		}
-	}
-	else
-	{
-		printf("Error\n");
-		return (1);
-	}
+	(void) argc;
+	(void) argv;
 	return (0);
 }
