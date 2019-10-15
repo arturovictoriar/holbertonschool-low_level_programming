@@ -29,7 +29,7 @@ int **alloc_grid(int width, int height)
 	for (i = 0; i < height; i++)
 	{
 		for (j = 0; j < width; j++)
-			matriz[i][j] = 0
+			matriz[i][j] = 0;
 	}
 
 	return (matriz);
