@@ -10,7 +10,7 @@ char **spll(char *str, int cont1);
 
 char **strtow(char *str)
 {
-	int i, cont1, flag1 = 0;
+	int i, cont1 = 0, flag1 = 0;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
@@ -25,6 +25,9 @@ char **strtow(char *str)
 		else if (flag1 == 1 && str[i + 1] == ' ')
 			flag1 = 0;
 	}
+	if (cont1 == 0)
+		return (NULL);
+
 	return (spll(str, cont1));
 }
 
