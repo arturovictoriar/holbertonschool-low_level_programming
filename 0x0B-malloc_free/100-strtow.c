@@ -12,8 +12,9 @@ char **strtow(char *str)
 {
 	int i, cont1, flag1 = 0;
 
-	if (str == NULL || str == '\0')
-	return (NULL);
+	if (str == NULL || *str == '\0')
+		return (NULL);
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] != ' ' && flag1 == 0)
@@ -57,9 +58,9 @@ char **spll(char *str, int cont1)
 				splitt[i] = malloc(cont2 * sizeof(char) + 1);
 				if (splitt[i] == NULL)
 				{
-					free(splitt);
 					for (i--; i >= cont1; i--)
 						free(splitt[i]);
+					free(splitt);
 					return (NULL);
 				}
 				for (k = 0; k < cont2; k++)
@@ -70,6 +71,6 @@ char **spll(char *str, int cont1)
 			}
 		}
 	}
-	splitt[i] = NULL;
+	splitt[i] = '\0';
 	return (splitt);
 }
