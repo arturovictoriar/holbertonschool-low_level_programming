@@ -58,7 +58,7 @@ char **spll(char *str, int cont1)
 				splitt[i] = malloc(cont2 * sizeof(char) + 1);
 				if (splitt[i] == NULL)
 				{
-					for (i--; i >= cont1; i--)
+					for (i--; i >= 0; i--)
 						free(splitt[i]);
 					free(splitt);
 					return (NULL);
