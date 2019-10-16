@@ -55,7 +55,7 @@ char **spll(char *str, int cont1)
 				cont2++;
 				flag1 = 1;
 			}
-			else if (flag1 == 1 && (str[j + 1] == ' ' || str[j + 1] != '\0'))
+			else if (flag1 == 1 && (str[j + 1] == ' ' || str[j + 1] == '\0'))
 			{
 				flag1 = 0;
 				splitt[i] = malloc(cont2 * sizeof(char) + 1);
