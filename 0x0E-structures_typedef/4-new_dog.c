@@ -28,6 +28,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(ndog);
 		return (NULL);
 	}
+
+	for (cont3 = 0; cont3 <= cont1; cont3++)
+		sname[cont3] = name[cont3];
+
 	sowner = malloc(sizeof(char) * cont2 + 1);
 	if (sowner == NULL)
 	{
@@ -35,8 +39,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(sname);
 		return (NULL);
 	}
-	for (cont3 = 0; cont3 <= cont1; cont3++)
-		sname[cont3] = name[cont3];
 	for (cont3 = 0; cont3 <= cont2; cont3++)
 		sowner[cont3] = owner[cont3];
 	ndog->name = sname;
