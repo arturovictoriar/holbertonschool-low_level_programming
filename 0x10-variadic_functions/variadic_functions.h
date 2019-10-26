@@ -3,12 +3,13 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <stdarg.h>
 
 typedef struct op
 {
 	char *op;
-	int (*f)(int a, int b);
+	void (*f)(va_list);
 } op_t;
 
 int _putchar(char c);
