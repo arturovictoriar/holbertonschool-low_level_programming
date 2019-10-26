@@ -1,46 +1,5 @@
 #include "variadic_functions.h"
-void ch(va_list a);
-void in(va_list a);
-void fl(va_list a);
-void cha(va_list a);
-/**
-  * print_all - fills memory with a constant byte
-  * @format: is string
-  * Return: nothing
-  */
 
-void print_all(const char * const format, ...)
-{
-	va_list gett;
-	int i, j;
-	op_t  o[] = {
-		{"c", ch},
-		{"i", in},
-		{"f", fl},
-		{"s", cha},
-		{NULL, NULL}
-	};
-
-	va_start(gett, format);
-	i = 0;
-	while (format[i] != '\0')
-	{
-		j = 0;
-		while (o[j].op != NULL)
-		{
-			if (format[i] == (o[j].op)[0])
-			{
-				o[j].f(gett);
-				if (format[i + 1] != '\0')
-					printf(", ");
-			}
-			j++;
-		}
-		i++;
-	}
-	va_end(gett);
-	printf("\n");
-}
 /**
   * ch - fills memory with a constant byte
   * @a: is string
@@ -83,4 +42,43 @@ void cha(va_list a)
 		return;
 	}
 	printf("%s", aa);
+}
+
+/**
+  * print_all - fills memory with a constant byte
+  * @format: is string
+  * Return: nothing
+  */
+
+void print_all(const char * const format, ...)
+{
+	va_list gett;
+	int i, j;
+	op_t  o[] = {
+		{"c", ch},
+		{"i", in},
+		{"f", fl},
+		{"s", cha},
+		{NULL, NULL}
+	};
+
+	va_start(gett, format);
+	i = 0;
+	while (format[i] != '\0' && format != NULL)
+	{
+		j = 0;
+		while (o[j].op != NULL)
+		{
+			if (format[i] == (o[j].op)[0])
+			{
+				o[j].f(gett);
+				if (format[i + 1] != '\0')
+					printf(", ");
+			}
+			j++;
+		}
+		i++;
+	}
+	va_end(gett);
+	printf("\n");
 }
