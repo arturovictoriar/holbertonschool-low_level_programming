@@ -9,32 +9,24 @@
 
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list gett, cgett;
+	va_list gett;
 	unsigned int i;
+	char *str;
 
 	va_start(gett, n);
-	va_copy(cgett, gett);
 
-	for (i = 0; i < n - 1; i++)
+	for (i = 0; i < n; i++)
 	{
-		if (va_arg(cgett, char *) != NULL)
-			printf("%s", va_arg(gett, char *));
+		str = va_arg(gett, char *);
+
+		if (str != NULL)
+			printf("%s", str);
 		else
-		{
-			va_arg(gett, char *);
-			printf("%s", "(nil)");
-		}
-		if (separator != NULL)
+			printf("(nil)");
+
+		if (separator != NULL && i != n - 1)
 			printf("%s", separator);
 	}
-	if (va_arg(cgett, char *) != NULL)
-		printf("%s", va_arg(gett, char *));
-	else
-	{
-		va_arg(gett, char *);
-		printf("%s", "(nil)");
-	}
-	va_end(cgett);
 	va_end(gett);
 	printf("\n");
 }

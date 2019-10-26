@@ -1,9 +1,11 @@
 #include "variadic_functions.h"
-void sepa(int a);
+void ch(va_list a);
+void in(va_list a);
+void fl(va_list a);
+void cha(va_list a);
 /**
-  * print_strings - fills memory with a constant byte
-  * @separator: is string
-  * @n: the amount of args
+  * print_all - fills memory with a constant byte
+  * @format: is string
   * Return: nothing
   */
 
@@ -11,11 +13,12 @@ void print_all(const char * const format, ...)
 {
 	va_list gett;
 	int i, j;
-	op_t o[] = {
-		{"c", char},
-		{"i", int},
-		{"f", float},
-		{"s", char *},
+	op_t  o[] = {
+		{"c", ch},
+		{"i", in},
+		{"f", fl},
+		{"s", cha},
+		{NULL, NULL}
 	};
 
 	va_start(gett, format);
@@ -23,45 +26,61 @@ void print_all(const char * const format, ...)
 	while (format[i] != '\0')
 	{
 		j = 0;
-		while (strcmp(x[i], o[i].p) == 0 && j == 0;)
+		while (o[j].op != NULL)
 		{
-			if (va_arg(cg, o[i].f) != NULL)
+			if (format[i] == (o[j].op)[0])
 			{
-				printf(" ", va_arg(gett, o[i].f));
-				sepa(x[i + 1]);
-				j = 1;
-				continue;
+				o[j].f(gett);
+				if (format[i + 1] != '\0')
+					printf(", ");
 			}
-		printf("nil");
-		sepa(x[i + 1]);
-		j = 1;
+			j++;
 		}
 		i++;
 	}
-
-
-
-
+	va_end(gett);
 	printf("\n");
 }
-void ch(char a)
+/**
+  * ch - fills memory with a constant byte
+  * @a: is string
+  * Return: nothing
+  */
+void ch(va_list a)
 {
-	printf("%c", a);
+	printf("%c", va_arg(a, int));
 }
-void in(int a)
+/**
+  * in - fills memory with a constant byte
+  * @a: is string
+  * Return: nothing
+  */
+void in(va_list a)
 {
-	printf("%d", a);
+	printf("%d", va_arg(a, int));
 }
-void fl(float a)
+/**
+  * fl - fills memory with a constant byte
+  * @a: is string
+  * Return: nothing
+  */
+void fl(va_list a)
 {
-	printf("%f", a);
+	printf("%f", va_arg(a, double));
 }
-void cha(char *a)
+/**
+  * cha - fills memory with a constant byte
+  * @a: is string
+  * Return: nothing
+  */
+void cha(va_list a)
 {
-	printf("%s", a);
-}
-void sepa (char a)
-{
-	if (a != '\0')
-		printf(", ");
+	char *aa = va_arg(a, char *);
+
+	if (aa == NULL)
+	{
+		printf("nil");
+		return;
+	}
+	printf("%s", aa);
 }
