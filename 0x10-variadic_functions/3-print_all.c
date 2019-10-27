@@ -54,6 +54,7 @@ void print_all(const char * const format, ...)
 {
 	va_list gett;
 	int i, j;
+	char *separ = "";
 	op_t  o[] = {
 		{"c", ch},
 		{"i", in},
@@ -71,9 +72,10 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == (o[j].op)[0])
 			{
+				printf("%s", separ);
 				o[j].f(gett);
-				if (format[i + 1] != '\0')
-					printf(", ");
+				separ = ", ";
+				break;
 			}
 			j++;
 		}
