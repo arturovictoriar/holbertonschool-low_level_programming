@@ -53,7 +53,7 @@ void cha(va_list a)
 void print_all(const char * const format, ...)
 {
 	va_list gett;
-	int i, j;
+	unsigned int i, j;
 	char *separ = "";
 	op_t  o[] = {
 		{"c", ch},
