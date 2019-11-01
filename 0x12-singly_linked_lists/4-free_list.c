@@ -9,13 +9,16 @@ void free_list(list_t *head)
 {
 	list_t *savepoin;
 
-	while (head->next != NULL)
+	if (head != NULL)
 	{
-		savepoin = head->next;
+		while (head->next != NULL)
+		{
+			savepoin = head->next;
+			free(head->str);
+			free(head);
+			head = savepoin;
+		}
 		free(head->str);
 		free(head);
-		head = savepoin;
 	}
-	free(head->str);
-	free(head);
 }
