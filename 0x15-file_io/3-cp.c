@@ -72,5 +72,5 @@ int main(int argc, char **argv)
 
 	if (close(fd2) == -1)
 		condi_fd(file_to);
-	return (1);
+	return (0);
 }
