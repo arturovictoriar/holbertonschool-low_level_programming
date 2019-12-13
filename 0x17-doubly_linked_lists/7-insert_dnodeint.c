@@ -22,12 +22,15 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new->n = n;
 
 	while (headcopy->prev != NULL)
+	{
 		headcopy = headcopy->prev;
+		*h = (*h)->prev;
+	}
 
 	if (idx == 0)
 	{
 		new->next = headcopy;
-		headcopy = new;
+		*h = new;
 		return (new);
 	}
 
