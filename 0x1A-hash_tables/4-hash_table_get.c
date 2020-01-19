@@ -11,6 +11,8 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int idx = 0;
 	hash_node_t *list = NULL;
 
+	if (!ht || !key)
+		return (NULL);
 	idx = key_index((const unsigned char *)key, ht->size);
 	list = ht->array[idx];
 
