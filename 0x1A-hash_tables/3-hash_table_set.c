@@ -18,20 +18,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *) key, size);
 	list = (ht->array)[index];
 
-	if (list != NULL)
+	if (list == NULL)
 	{
-		while (list)
+		(ht->array)[index] = h_n_create(key, value);
+		if ((ht->array)[index] == NULL)
+			return (0);
+		return (1);
+	}
+
+	while (list)
+	{
+		if (strcmp(list->key, key) == 0)
 		{
-			if (strcmp(list->key, key) == 0)
-			{
-				free(list->value);
-				list->value = strdup(value);
-				if (list->value == NULL)
-					return (0);
-				return (1);
-			}
-			list = list->next;
+			free(list->value);
+			list->value = strdup(value);
+			if (list->value == NULL)
+				return (0);
+			return (1);
 		}
+		list = list->next;
 	}
 
 	node = h_n_create(key, value);
