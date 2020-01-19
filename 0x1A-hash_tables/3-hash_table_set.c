@@ -10,13 +10,13 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *node = NULL, *list = NULL;
-	unsigned long int index = 0, size = ht->size;
+	unsigned long int idx = 0;
 
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
 
-	index = key_index((const unsigned char *) key, size);
-	list = ht->array[index];
+	idx = key_index((const unsigned char *) key, ht->size);
+	list = ht->array[idx];
 
 	while (list)
 	{
@@ -40,8 +40,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (node->key == NULL || node->value == NULL)
 		return (0);
 
-	node->next = ht->array[index];
-	ht->array[index] = node;
+	node->next = ht->array[idx];
+	ht->array[idx] = node;
 
 	return (1);
 }
