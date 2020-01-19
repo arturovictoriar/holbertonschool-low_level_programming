@@ -59,10 +59,10 @@ hash_node_t *h_n_create(const char *key, const char *value)
 	if (new == NULL)
 		return (NULL);
 
-	new->key = (char *) key;
+	new->key = strdup(key);
 
 	new->value = strdup(value);
-	if (new->value == NULL)
+	if (new->value == NULL || new->key == NULL)
 	{
 		free(new);
 		return (NULL);
