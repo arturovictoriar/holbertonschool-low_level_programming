@@ -16,15 +16,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	index = key_index((const unsigned char *) key, size);
-	list = (ht->array)[index];
-
-	if (list == NULL)
-	{
-		(ht->array)[index] = h_n_create(key, value);
-		if ((ht->array)[index] == NULL)
-			return (0);
-		return (1);
-	}
+	list = ht->array[index];
 
 	while (list)
 	{
@@ -39,38 +31,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		list = list->next;
 	}
 
-	node = h_n_create(key, value);
+	node = malloc(sizeof(hash_node_t));
 	if (node == NULL)
 		return (0);
 
-	node->next = (ht->array)[index];
-	(ht->array)[index] = node;
+	node->key = strdup(key);
+	node->value = strdup(value);
+	if (node->key == NULL || node->value == NULL)
+		return (0);
+
+	node->next = ht->array[index];
+	ht->array[index] = node;
 
 	return (1);
-}
-
-/**
-  * h_n_create - create a hash node
-  * @key:  is the key name
-  * @value: value associated with the key
-  * Return: the position memory where is stored the head
-  */
-
-hash_node_t *h_n_create(const char *key, const char *value)
-{
-	hash_node_t *new;
-
-	new = malloc(sizeof(hash_node_t));
-	if (new == NULL)
-		return (NULL);
-
-	new->key = strdup(key);
-
-	new->value = strdup(value);
-	if (new->value == NULL || new->key == NULL)
-		return (NULL);
-
-	new->next = NULL;
-
-	return (new);
 }
