@@ -224,7 +224,7 @@ void sorted_list(shash_table_t *ht, shash_node_t *node)
 	if (!ht->shead)
 	{
 		ht->shead = node;
-		ht->stail = NULL;
+		ht->stail = node;
 	}
 	else
 	{
