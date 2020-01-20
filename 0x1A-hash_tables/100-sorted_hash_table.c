@@ -219,7 +219,6 @@ void sfree_list(shash_node_t *head)
 
 void sorted_list(shash_table_t *ht, shash_node_t *node)
 {
-	int node_current = 0, list_current = 0;
 	shash_node_t *sorted_head = NULL;
 
 	if (!ht->shead)
@@ -233,9 +232,7 @@ void sorted_list(shash_table_t *ht, shash_node_t *node)
 
 		while (sorted_head)
 		{
-			node_current = from_asci_to_number(node->key);
-			list_current = from_asci_to_number(sorted_head->key);
-			if (node_current <= list_current)
+			if (from_asci_to_number(node->key, sorted_head->key))
 			{
 				if (sorted_head->sprev)
 					sorted_head->sprev->snext = node;
@@ -261,19 +258,43 @@ void sorted_list(shash_table_t *ht, shash_node_t *node)
 
 /**
   * from_asci_to_number - convert a string summing each ascci code of its chars
-  * @key:  is the key name
-  * Return: number from ascci code
+  * @node: current node
+  * @sorted_head: prev node
+  * Return: 1 if node <= sorted or 0 otherwise
   */
 
-int from_asci_to_number(char *key)
+int from_asci_to_number(char *node, char *sorted_head)
 {
-	int result_a_n = 0, i = 0;
+	int i = 0;
 
-	if (key)
-		for (i = 0; key[i] != '\0'; i++)
-			result_a_n += key[i];
-
-	return (result_a_n);
+	for (i = 0; node[i] != '\0' && sorted_head[i] != '\0'; i++)
+	{
+		if (node[i] == sorted_head[i])
+		{
+			if (node[i + 1] == '\0' && sorted_head[i + 1] == '\0')
+			{
+				return (1);
+			}
+			else if (node[i + 1] == '\0' && sorted_head[i + 1] != '\0')
+			{
+				return (1);
+			}
+			else if (node[i + 1] != '\0' && sorted_head[i + 1] == '\0')
+			{
+				return (0);
+			}
+			continue;
+		}
+		else if (node[i] < sorted_head[i])
+		{
+			return (1);
+		}
+		else if (node[i] > sorted_head[i])
+		{
+			return (0);
+		}
+	}
+	return (0);
 }
 
 /**
