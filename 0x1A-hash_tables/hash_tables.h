@@ -89,7 +89,7 @@ void shash_table_print_rev(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
 
 void sorted_list(shash_table_t *ht, shash_node_t *node);
-int from_asci_to_number(char *key);
+int from_asci_to_number(char *node, char *sorted_head);
 shash_node_t *sh_n_create(const char *key, const char *value);
 void sfree_list(shash_node_t *head);
 #endif
