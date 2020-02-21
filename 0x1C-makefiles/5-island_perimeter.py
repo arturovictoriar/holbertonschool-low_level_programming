@@ -8,6 +8,9 @@
 def island_perimeter(grid):
     """" Returns the perimeter of the\
     island described in grid"""
+    if not len(grid):
+        return 0
+
     perimeter = 0
     for i, g_cell in enumerate(grid):
         for j, cell in enumerate(g_cell):
