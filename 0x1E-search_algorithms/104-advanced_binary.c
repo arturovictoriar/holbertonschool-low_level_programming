@@ -60,13 +60,12 @@ size_t bi_se(int *array, size_t l, size_t r, int value)
   */
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t l = 0, r = size - 1;
 	int index = -1;
 
-	if (array == NULL)
+	if (array == NULL || size == 0)
 		return (-1);
 
-	index = bi_se(array, l, r, value);
+	index = bi_se(array, 0, size - 1, value);
 
 	if (index >= 0)
 		return (index);
