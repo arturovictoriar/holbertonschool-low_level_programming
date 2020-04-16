@@ -12,48 +12,47 @@ size_t min_value(size_t l, size_t r)
 	return ((l < r) ? l : r);
 }
 
-
 /**
-  * jump_search - search the first ocurrency of a value in the array
-  * @array: set of numbers
-  * @size: size of the array
-  * @value: value to search
-  * Return: return the first index located otherwise -1
-  */
+ * jump_search - search a value in a sort list
+ * @array: list of numbers
+ * @size: lenght of the list
+ * @value: value to search for
+ * Return: the first index of value otherwise -1
+ */
 int jump_search(int *array, size_t size, int value)
 {
-	size_t a = 0, b = sqrt(size);
+	size_t a = 0, b = sqrt(size), step = sqrt(size);
 
 	if (array == NULL)
 		return (-1);
-	printf("Value checked array[%d] = [%d]\n", (int) a, array[a]);
 	while (array[min_value(b, size) - 1] < value)
 	{
-		if (a >= size || (b >= size && array[min_value(b + sqrt(size), size
-								) - 1] < value))
-		{
-			printf("Value found between indexes [%d] and [%d]\n", (int) a, (int) b);
-			for ( ; a < size; a++)
-				printf("Value checked array[%d] = [%d]\n", (int) a, array[a]);
-			return (-1);
-		}
-		if (array[min_value(b + sqrt(size), size) - 1] >= value)
-			break;
+		printf("Value checked array[%d] = [%d]\n", (int)a, array[a]);
 		a = b;
-		b += sqrt(size);
-		printf("Value checked array[%d] = [%d]\n", (int) a, array[a]);
+		b += step;
+		if (a >= size)
+			break;
 	}
-	printf("Value found between indexes [%d] and [%d]\n", (int) a, (int) b);
+	if ((int)(a - step) >= 0)
+	{
+		a -= step;
+		b -= step;
+	}
+	else
+		printf("Value checked array[%d] = [%d]\n", (int)a, array[a]);
+	printf("Value found between indexes [%d] and [%d]\n", (int)a, (int)b);
 	while (array[a] < value)
 	{
-		printf("Value checked array[%d] = [%d]\n", (int) a, array[a]);
+		printf("Value checked array[%d] = [%d]\n", (int)a, array[a]);
 		a++;
 		if (a == min_value(b + 1, size))
 			return (-1);
 	}
-	printf("Value checked array[%d] = [%d]\n", (int) a, array[a]);
-	if (array[a] == value)
-		return (a);
 
+	if (array[a] == value)
+	{
+		printf("Value checked array[%d] = [%d]\n", (int)a, array[a]);
+		return (a);
+	}
 	return (-1);
 }
