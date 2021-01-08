@@ -82,13 +82,11 @@ add_t *adding_all_mul(add_t *head)
 /**
 * print_free_result - print the result of the multiplication and free all
 * @result: Addition pointer to the total resul of the  multiplication
-* @head: linked list representation of a set of additions
 * Result: Nothing
 */
-void print_free_result(add_t *result, add_t *head)
+void print_free_result(add_t *result)
 {
 	int i = 0, start_n = 0;
-	add_t *c_head = NULL;
 
 	i = 0;
 	while (i < result->n_dig)
@@ -105,13 +103,6 @@ void print_free_result(add_t *result, add_t *head)
 	_putchar('\n');
 	free(result->n_add);
 	free(result);
-	while (head)
-	{
-		c_head = head->next;
-		free(head->n_add);
-		free(head);
-		head = c_head;
-	}
 }
 
 /**
@@ -145,7 +136,7 @@ int main(int ac, char **av)
 {
 	char *a = NULL, *b =  NULL;
 	int i = 0, len_a = 0, len_b = 0, is_a = 1, is_b = 1, len_r = 0, j = 0;
-	add_t *head = NULL, *n = NULL, *result = NULL;
+	add_t *n = NULL, *result = NULL;
 
 	if (ac != 3)
 		error_message();
@@ -166,21 +157,20 @@ int main(int ac, char **av)
 		a = av[2], b = av[1], len_a = len_b, len_b = len_r - len_b;
 	for (i = len_a - 1; i >= 0; i--)
 	{
-		for (j = len_b - 1; j >= 0; j--)
+		for (j = len_b - 1; j >= 0; j--, n = NULL)
 		{
-			if (!head)
+			n = mul_each_dig(a[i], len_a - 1 - i, b[j], len_b - 1 - j, len_r);
+			n->next = result;
+			result = adding_all_mul(n);
+			if (n->next)
 			{
-				head = mul_each_dig(a[i], len_a - 1 - i, b[j], len_b - 1 - j, len_r);
-				n = head;
+				free(n->next->n_add);
+				free(n->next);
 			}
-			else
-			{
-				n->next = mul_each_dig(a[i], len_a - 1 - i, b[j], len_b - 1 - j, len_r);
-				n = n->next;
-			}
+			free(n->n_add);
+			free(n);
 		}
 	}
-	result = adding_all_mul(head);
-	print_free_result(result, head);
+	print_free_result(result);
 	return (0);
 }
